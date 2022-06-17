@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { Link } from "react-router-dom";
+import Breadcrumb from "./components/Breadcrumb";
+import ResultCard from "./components/ResultCard";
+import SearchBox from "./components/SearchBox";
+import styles from "./styles/app.module.scss";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.App}>
+      <SearchBox />
+      <Breadcrumb />
+      <ResultCard />
+      <ResultCard />
+      <ResultCard />
+      <ResultCard />
+      <Link to="/invoices">Invoices</Link> |{" "}
+      <Link to="/expenses">Expenses</Link>
     </div>
   );
 }
 
-export default App;
+export function Expenses() {
+  return (
+    <main style={{ padding: "1rem 0" }}>
+      <h2>Expenses</h2>
+    </main>
+  );
+}
+
+export function Invoices() {
+  return (
+    <main style={{ padding: "1rem 0" }}>
+      <h2>Invoices</h2>
+    </main>
+  );
+}

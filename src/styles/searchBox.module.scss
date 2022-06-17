@@ -1,0 +1,56 @@
+@import "variables";
+
+.searchBoxContainer {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: $yellow;
+  width: 100%;
+  justify-content: center;
+
+  .searchBox {
+    width: 85%;
+    display: flex;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+
+    .logo {
+      background-image: url(#{$assetPath}/Logo_ML.png);
+      background-position: top right;
+      background-repeat: no-repeat;
+      width: 10%;
+      height: 36px;
+      display: flex;
+      margin-right: 1.25rem;
+    }
+
+    > div {
+      overflow: hidden;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      display: flex;
+      align-items: stretch;
+      width: 80%;
+      .searchInput {
+        width: 100%;
+        padding: 0.25rem;
+        border-style: none;
+        font-size: 18px;
+        border-radius: 2px 0 0 2px;
+        &::placeholder {
+          color: $gray;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    .searchButton {
+      border-style: none;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      background-color: $ligth-gray;
+      color: $gray;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@import "variables";
+
+.container {
+  height: 13rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .card {
+    background-color: $white;
+    width: 75%;
+
+    .cardContainer {
+      display: grid;
+      grid-template-columns: 25% 50% 25%;
+      gap: 1rem;
+
+      .image {
+        padding: 16px;
+        border-radius: 4px;
+      }
+
+      .resultDescription {
+        padding-top: 2rem;
+
+        .price {
+          font-size: 24px;
+          padding-bottom: 1rem;
+        }
+        .desc1,
+        .desc2 {
+          font-size: 18px;
+        }
+      }
+
+      .location {
+        padding-top: 3rem;
+        padding-left: 2rem;
+        font-size: 12px;
+        color: $gray;
+      }
+    }
+  }
+}
