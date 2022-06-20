@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Breadcrumb from "./components/Breadcrumb";
+import Details from "./components/Details";
 import ResultCard from "./components/ResultCard";
 import SearchBox from "./components/SearchBox";
 import styles from "./styles/app.module.scss";
@@ -9,12 +10,13 @@ export default function App() {
     <div className={styles.App}>
       <SearchBox />
       <Breadcrumb />
+      <Details />
+      {/* <ResultCard />
       <ResultCard />
       <ResultCard />
-      <ResultCard />
-      <ResultCard />
-      <Link to="/invoices">Invoices</Link> |{" "}
-      <Link to="/expenses">Expenses</Link>
+      <ResultCard /> */}
+      {/* <Link to="/invoices">Invoices</Link> |{" "}
+      <Link to="/expenses">Expenses</Link> */}
     </div>
   );
 }

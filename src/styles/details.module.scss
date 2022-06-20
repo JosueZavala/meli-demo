@@ -1,0 +1,83 @@
+@import "variables";
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .card {
+    background-color: $white;
+    width: $widthContainer;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .imageContainer {
+      /* background-color: gray; */
+      width: 70%;
+      height: 75%;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .details {
+      padding-top: 32px;
+      width: 100%;
+      height: 50%;
+      padding-left: 32px;
+      margin-bottom: 32px;
+      @include md {
+        width: 25%;
+        padding-left: 0px;
+        padding-bottom: 0px;
+      }
+      .sells {
+        font-size: 14px;
+        padding-bottom: 8px;
+      }
+      .name {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .price {
+        font-size: 36px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+      .buyButton {
+        @include md {
+          display: flex;
+          justify-content: center;
+        }
+        .buy {
+          background-color: $blue;
+          border: none;
+          color: white;
+          padding: 10px 60px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          border-radius: 4px;
+        }
+      }
+    }
+
+    .description {
+      width: 70%;
+      height: 100%;
+      font-size: 16px;
+      color: $dark-gray;
+      padding-left: 32px;
+      padding-bottom: 32px;
+      .title {
+        color: $black;
+        font-size: 28px;
+        padding-bottom: 32px;
+      }
+    }
+  }
+}

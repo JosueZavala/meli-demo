@@ -9,7 +9,7 @@ const ResultCard = () => {
               src={
                 "https://http2.mlstatic.com/D_935185-MLA46504064329_062021-I.jpg"
               }
-              alt="Girl in a jacket"
+              alt="Test"
               width="180"
               height="180"
             />
@@ -21,9 +21,7 @@ const ResultCard = () => {
             </div>
             <div className={styles.desc2}>Completo Unico</div>
           </div>
-          <div className={styles.location}>
-            Capital Federal
-          </div>
+          <div className={styles.location}>Capital Federal</div>
         </div>
       </div>
     </div>
