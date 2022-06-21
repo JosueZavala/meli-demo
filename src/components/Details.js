@@ -1,39 +1,78 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { productDetails } from "../services/searchService";
 import styles from "../styles/details.module.scss";
+import { formatPrice } from "../utils/functions";
+import Breadcrumb from "./Breadcrumb";
 const Details = () => {
-  return (
-    <div className={styles.container}>
-      <div className={styles.card}>
-        <div className={styles.imageContainer}>
-          <img
-            src={
-              "https://http2.mlstatic.com/D_935185-MLA46504064329_062021-O.jpg"
-            }
-            alt="Test"
-          />
-        </div>
-        <div className={styles.details}>
-          <div className={styles.sells}>Nuevo - 234 vendidos</div>
-          <div className={styles.name}>
-            Deco Reverse <br /> Sombrero Oxford
-          </div>
-          <div className={styles.price}>$1.980</div>
-          <div className={styles.buyButton}>
-            <button className={styles.buy}>Comprar</button>
-          </div>
-        </div>
+  const { id } = useParams();
+  const [image, setImage] = useState("");
+  const [title, setTitle] = useState("");
+  const [soldQuantity, setSoldQuantity] = useState(0);
+  const [condition, setCondition] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
+  const [categoryId, setCategoryId] = useState("");
 
-        <div className={styles.description}>
-          <div className={styles.title}>Descripción del producto</div>
-          The Scarpe di Bianco Italian footwear collection was founded by Bill
-          White in 2009. Di Bianco offers classic handmade men's shoes with a
-          modern twist. The combination of timeless models and details with
-          conteporary colors and styling, results in decidedly current, yet
-          elegant models. The aim of the Scarpe di Bianco company is to offer
-          men a custom shoe buying experience through a multitude of models,
-          lasts, soles, leathers, and color options.
+  const searchItems = async () => {
+    const { data } = await productDetails(id);
+    const {
+      data: { plain_text },
+    } = await productDetails(id, "description");
+
+    const {
+      pictures,
+      title: name,
+      sold_quantity,
+      condition: conditionStatus,
+      price: priceARG,
+      category_id,
+    } = data;
+    setImage(pictures[0].url);
+    setTitle(name);
+    setSoldQuantity(sold_quantity);
+    setCondition(conditionStatus);
+    setPrice(formatPrice(priceARG));
+    setDescription(plain_text);
+    setCategoryId(category_id);
+  };
+
+  const handleClick = (event) => {
+    event.preventDefault();
+    alert("Comprado");
+  };
+
+  useEffect(() => {
+    searchItems();
+  }, []);
+  return (
+    <>
+      <Breadcrumb id={categoryId} />
+      <div className={styles.container}>
+        <div className={styles.card}>
+          <div className={styles.imageContainer}>
+            <img src={image} alt="Test" />
+          </div>
+          <div className={styles.details}>
+            <div className={styles.sells}>
+              {condition} - {soldQuantity} vendidos
+            </div>
+            <div className={styles.name}>{title}</div>
+            <div className={styles.price}>{price}</div>
+            <div className={styles.buyButton}>
+              <button className={styles.buy} onClick={handleClick}>
+                Comprar
+              </button>
+            </div>
+          </div>
+
+          <div className={styles.description}>
+            <div className={styles.title}>Descripción del producto</div>
+            {description}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

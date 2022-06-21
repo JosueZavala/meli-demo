@@ -11,5 +11,8 @@
 
   .breadcrumb {
     width: $widthContainer;
+    @include xxl {
+      width: $extraLargeWidthContainer;
+    }
   }
 }

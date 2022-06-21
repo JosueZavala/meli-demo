@@ -12,6 +12,9 @@
     display: flex;
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
+    @include xxl {
+      width: $extraLargeWidthContainer;
+    }
 
     .logo {
       background-image: url(#{$assetPath}/Logo_ML.png);

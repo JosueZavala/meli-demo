@@ -1,7 +1,10 @@
+import { useFormContext } from "react-hook-form";
 import { FaSearch } from "react-icons/fa";
 import styles from "../styles/searchBox.module.scss";
 
 const SearchBox = () => {
+  const { register } = useFormContext();
+
   return (
     <div className={styles.searchBoxContainer}>
       <div className={styles.searchBox}>
@@ -11,9 +14,10 @@ const SearchBox = () => {
             type="text"
             placeholder="Nunca dejes de buscar"
             className={styles.searchInput}
+            {...register("searchInput")}
           />
         </div>
-        <button type="button" className={styles.searchButton}>
+        <button type="submit" className={styles.searchButton}>
           <FaSearch />
         </button>
       </div>

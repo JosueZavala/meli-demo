@@ -9,15 +9,26 @@
   .card {
     background-color: $white;
     width: $widthContainer;
+    @include xxl {
+      width: $extraLargeWidthContainer;
+    }
 
     .cardContainer {
       display: grid;
-      grid-template-columns: 25% 50% 25%;
+      grid-template-columns: 45% 25% 20%;
       gap: 1rem;
+
+      @include md {
+        grid-template-columns: 35% 40% 10%;
+      }
+      @include xxl {
+        grid-template-columns: 25% 50% 25%;
+      }
 
       .image {
         padding: 16px;
         border-radius: 4px;
+        cursor: pointer;
       }
 
       .resultDescription {
@@ -27,9 +38,12 @@
           font-size: 24px;
           padding-bottom: 1rem;
         }
-        .desc1,
-        .desc2 {
+        .title,
+        .shortDescription {
           font-size: 18px;
+        }
+        .title {
+          cursor: pointer;
         }
       }
 

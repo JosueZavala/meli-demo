@@ -13,9 +13,12 @@
     display: flex;
     flex-wrap: wrap;
 
+    @include xxl {
+      width: $extraLargeWidthContainer;
+    }
+
     .imageContainer {
-      /* background-color: gray; */
-      width: 70%;
+      width: 680px;
       height: 75%;
 
       img {
@@ -29,10 +32,13 @@
       height: 50%;
       padding-left: 32px;
       margin-bottom: 32px;
-      @include md {
+      margin-left: 32px;
+      margin-right: 32px;
+      @include xl {
         width: 25%;
         padding-left: 0px;
         padding-bottom: 0px;
+        margin-right: 0px;
       }
       .sells {
         font-size: 14px;
@@ -62,6 +68,7 @@
           display: inline-block;
           font-size: 16px;
           border-radius: 4px;
+          cursor: pointer;
         }
       }
     }
